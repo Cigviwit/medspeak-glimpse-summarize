@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -51,28 +52,6 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				medical: {
-					50: '#f0fdfc',
-					100: '#ccfbf1',
-					200: '#99f6e4',
-					300: '#5eead4',
-					400: '#2dd4bf',
-					500: '#14b8a6',
-					600: '#0d9488',
-					700: '#0f766e',
-					800: '#115e59',
-					900: '#134e4a',
 				}
 			},
 			borderRadius: {
@@ -81,26 +60,10 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
 				'inter': ['Inter', 'system-ui', 'sans-serif'],
+				'space': ['Space Grotesk', 'system-ui', 'sans-serif'],
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				},
 				'gradient-shift': {
 					'0%, 100%': {
 						'background-position': '0% 50%'
@@ -111,34 +74,40 @@ export default {
 				},
 				'float-slow': {
 					'0%, 100%': {
-						transform: 'translateY(0px) rotate(0deg)'
+						transform: 'translate3d(0, 0, 0) rotate(0deg)'
 					},
-					'50%': {
-						transform: 'translateY(-20px) rotate(3deg)'
+					'33%': {
+						transform: 'translate3d(30px, -30px, 0) rotate(120deg)'
+					},
+					'66%': {
+						transform: 'translate3d(-20px, 20px, 0) rotate(240deg)'
 					}
 				},
 				'float-slower': {
 					'0%, 100%': {
-						transform: 'translateY(0px) rotate(0deg)'
+						transform: 'translate3d(0, 0, 0) rotate(0deg)'
 					},
-					'50%': {
-						transform: 'translateY(-15px) rotate(-2deg)'
+					'33%': {
+						transform: 'translate3d(-30px, 30px, 0) rotate(-120deg)'
+					},
+					'66%': {
+						transform: 'translate3d(20px, -20px, 0) rotate(-240deg)'
 					}
 				},
 				'glow-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px rgba(20, 184, 166, 0.3)'
+						boxShadow: '0 0 30px rgba(139, 92, 246, 0.4), 0 0 60px rgba(236, 72, 153, 0.2)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px rgba(20, 184, 166, 0.6), 0 0 60px rgba(20, 184, 166, 0.3)'
+						boxShadow: '0 0 50px rgba(139, 92, 246, 0.6), 0 0 80px rgba(236, 72, 153, 0.4)'
 					}
 				},
 				'shimmer-wave': {
 					'0%': {
-						transform: 'translateX(-100%)'
+						'background-position': '-200% 0'
 					},
 					'100%': {
-						transform: 'translateX(100%)'
+						'background-position': '200% 0'
 					}
 				},
 				'typing-dots': {
@@ -154,21 +123,26 @@ export default {
 						transform: 'scale(1)',
 						opacity: '1'
 					}
+				},
+				'breathe': {
+					'0%, 100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					},
+					'50%': {
+						transform: 'scale(1.05)',
+						opacity: '0.8'
+					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
 				'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
-				'float-slow': 'float-slow 6s ease-in-out infinite',
-				'float-slower': 'float-slower 8s ease-in-out infinite',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'float-slow': 'float-slow 20s ease-in-out infinite',
+				'float-slower': 'float-slower 25s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
 				'shimmer-wave': 'shimmer-wave 2s ease-in-out infinite',
 				'typing-dots': 'typing-dots 1.4s ease-in-out infinite',
-			},
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'breathe': 'breathe 4s ease-in-out infinite',
 			}
 		}
 	},

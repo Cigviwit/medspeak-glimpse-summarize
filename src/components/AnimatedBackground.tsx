@@ -7,7 +7,7 @@ const AnimatedBackground = () => {
       <div className="floating-orb"></div>
       
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent animate-gradient-shift" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-purple-500/5 to-transparent animate-gradient-shift" />
       
       {/* Subtle grid pattern */}
       <div 

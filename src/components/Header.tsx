@@ -40,11 +40,11 @@ const Header = () => {
             </div>
           </div>
           
-          <div className="hidden sm:flex items-center gap-4">
-            <button className="px-3 py-1.5 md:px-4 md:py-2 text-sm font-medium text-white/70 hover:text-white transition-colors">
+          <div className="flex items-center gap-2 md:gap-4">
+            <button className="px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm font-medium text-white/70 hover:text-white transition-colors">
               Sign In
             </button>
-            <button className="px-4 py-1.5 md:px-6 md:py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 text-sm">
+            <button className="px-3 py-1 md:px-6 md:py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-lg md:rounded-xl font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 text-xs md:text-sm">
               Sign Up
             </button>
           </div>

@@ -3,87 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
-
 @layer base {
   :root {
-    --background: 248 250 252;
-    --foreground: 15 23 42;
+    --background: 10 10 23;
+    --foreground: 248 250 252;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 15 15 35;
+    --card-foreground: 248 250 252;
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover: 15 15 35;
+    --popover-foreground: 248 250 252;
 
-    --primary: 20 184 166;
-    --primary-foreground: 255 255 255;
+    --primary: 251 146 60;
+    --primary-foreground: 15 15 35;
 
-    --secondary: 241 245 249;
-    --secondary-foreground: 51 65 85;
+    --secondary: 30 30 60;
+    --secondary-foreground: 226 232 240;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 25 25 50;
+    --muted-foreground: 148 163 184;
 
-    --accent: 240 253 250;
-    --accent-foreground: 19 78 74;
+    --accent: 35 35 70;
+    --accent-foreground: 240 253 250;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 20 184 166;
+    --border: 35 35 70;
+    --input: 35 35 70;
+    --ring: 251 146 60;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    --sidebar-background: 255 255 255;
-    --sidebar-foreground: 15 23 42;
-    --sidebar-primary: 20 184 166;
-    --sidebar-primary-foreground: 255 255 255;
-    --sidebar-accent: 241 245 249;
-    --sidebar-accent-foreground: 51 65 85;
-    --sidebar-border: 226 232 240;
-    --sidebar-ring: 20 184 166;
-  }
-
-  .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
-
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
-
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
-
-    --primary: 45 212 191;
-    --primary-foreground: 19 78 74;
-
-    --secondary: 51 65 85;
-    --secondary-foreground: 226 232 240;
-
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
-
-    --accent: 19 78 74;
-    --accent-foreground: 240 253 250;
-
-    --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 45 212 191;
-
-    --sidebar-background: 30 41 59;
+    --sidebar-background: 15 15 35;
     --sidebar-foreground: 248 250 252;
-    --sidebar-primary: 45 212 191;
-    --sidebar-primary-foreground: 19 78 74;
-    --sidebar-accent: 51 65 85;
+    --sidebar-primary: 251 146 60;
+    --sidebar-primary-foreground: 15 15 35;
+    --sidebar-accent: 30 30 60;
     --sidebar-accent-foreground: 226 232 240;
-    --sidebar-border: 51 65 85;
-    --sidebar-ring: 45 212 191;
+    --sidebar-border: 35 35 70;
+    --sidebar-ring: 251 146 60;
   }
 }
 
@@ -93,14 +52,71 @@
   }
 
   body {
-    @apply bg-background text-foreground font-satoshi;
+    @apply bg-background text-foreground font-space antialiased;
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsl(240 20% 8%) 25%, 
+      hsl(250 25% 12%) 50%, 
+      hsl(240 20% 8%) 75%, 
+      hsl(var(--background)) 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease-in-out infinite;
+    min-height: 100vh;
   }
 }
 
 @layer components {
+  .glass-card {
+    @apply backdrop-blur-xl bg-card/30 border border-white/10 shadow-2xl;
+  }
+  
   .shimmer-loading {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    background-size: 200px 100%;
-    animation: shimmer 1.5s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer-wave 2s ease-in-out infinite;
+  }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(1px);
+  }
+
+  .floating-orb:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #fb923c, #f59e0b);
+    top: 10%;
+    left: 10%;
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .floating-orb:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #14b8a6, #06b6d4);
+    top: 60%;
+    right: 15%;
+    animation: float-slower 10s ease-in-out infinite;
+  }
+
+  .floating-orb:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #8b5cf6, #a855f7);
+    bottom: 20%;
+    left: 20%;
+    animation: float-slow 12s ease-in-out infinite reverse;
   }
 }

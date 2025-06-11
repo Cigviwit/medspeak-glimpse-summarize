@@ -1,15 +1,17 @@
 
 const Footer = () => {
   return (
-    <footer className="w-full py-8 mt-16">
-      <div className="container mx-auto px-4">
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">
+    <footer className="relative w-full py-12 mt-24">
+      <div className="container mx-auto px-6">
+        <div className="text-center space-y-4">
+          <p className="text-muted-foreground font-inter">
             Coming soon: Powered by{" "}
-            <span className="font-semibold text-primary">Gemini AI</span>
+            <span className="font-semibold bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent">
+              Gemini AI
+            </span>
           </p>
-          <div className="mt-2 flex justify-center">
-            <div className="w-8 h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full" />
+          <div className="flex justify-center">
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full opacity-50" />
           </div>
         </div>
       </div>
